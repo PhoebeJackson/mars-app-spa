@@ -1,15 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './Cartoon_space_rocket.png';
 import './App.css';
+import BasicComponent from "./BasicComponent";
+import NasaBasicComponent from "./NasaBasicComponent";
+import ButtonCount from "./ButtonCount";
+import FourComponentTree from "./FourComponentTree";
 
 function App() {
   return (
-    <div className="App">
+    <section className="App">
       <header className="App-header">
+        <ButtonCount></ButtonCount>
+        <FourComponentTree></FourComponentTree>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <NasaBasicComponent></NasaBasicComponent>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -19,7 +23,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </section>
   );
 }
 
