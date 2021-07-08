@@ -1,15 +1,16 @@
 import React from 'react';
 import logo from './images/Cartoon_space_rocket.png';
 import './App.css';
-import BasicComponent from "./components/BasicComponent";
 import NasaBasicComponent from "./components/NasaBasicComponent";
 import ButtonCount from "./components/ButtonCount";
 import FourComponentTree from "./components/FourComponentTree";
+import HenrysDumbTests from "./components/HenrysDumbTests";
 
 function App() {
   return (
     <section className="App">
       <header className="App-header">
+        <HenrysDumbTests></HenrysDumbTests>
         <ButtonCount></ButtonCount>
         <FourComponentTree></FourComponentTree>
         <img src={logo} className="App-logo" alt="logo" />
@@ -22,6 +23,9 @@ function App() {
         >
           Learn React
         </a>
+        <p>
+
+        </p>
       </header>
     </section>
   );
