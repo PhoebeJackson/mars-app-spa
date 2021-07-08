@@ -13,6 +13,16 @@ class RoverOption {
     }
 }
 
+class CameraOption {
+    value: string;
+    label: string
+
+    constructor(camera: Camera) {
+        this.value = camera.name
+        this.label = camera.full_name
+    }
+}
+
 function makeRoverOptions(rovers: Rover[]): RoverOption[] {
     const roverOptions = rovers.map((rover) => {
         return new RoverOption(rover)
@@ -26,21 +36,41 @@ async function findMeRovers(): Promise<Rover[]> {
 }
 
 function SelectForm(){
-    const [roverOptions, setRoverOptions] = useState([{value: NaN, label: "This is loading"}])
-    const [selection, setSelection] = useState({value: NaN, label: "Unknown"});
-    const handleSelectionChange = (event: {value: number, label: string} | null) => {
-        const myEvent = event || { value: 6, label: 'Broken' }
-        setSelection({value: myEvent.value, label: myEvent.label})
+    const [roverOptions, setRoverOptions] = useState<RoverOption[]>([{value: NaN, label: "Loading"}])
+    const [roverSelection, setRoverSelection] = useState<RoverOption>({value: NaN, label: "UnknownRover"});
+    const [cameraOptions, setCameraOptions] = useState<CameraOption[]>([{value: "", label: "Pick a Rover to see cameras"}])
+    const [cameraSelection, setCameraSelection] = useState<CameraOption>({value: "", label: "UnknownCamera"});
+    const [rovers, setRovers] = useState<Rover[]>([])
+    const handleRoverSelectionChange = async (event: {value: number, label: string} | null) => {
+        const myEvent = event || { value: NaN, label: 'BrokenRover' }
+        setRoverSelection({value: myEvent.value, label: myEvent.label})
+        let newCameraOptions: CameraOption[] = []
+        rovers.forEach((rover) => {
+            if (rover.id === myEvent.value) {
+                rover.cameras.forEach((camera) => {
+                    newCameraOptions.push(new CameraOption(camera))
+                })
+            }
+        })
+        await setCameraOptions(newCameraOptions)
+    }
+    const handleCameraSelectionChange = (event: {value: string, label: string} | null) => {
+        const myEvent = event || { value: "", label: 'BrokenCamera' }
+        setCameraSelection({value: myEvent.value, label: myEvent.label})
     }
     useEffect(() => {
-        findMeRovers().then((rovers: Rover[]) => {
-            setRoverOptions(makeRoverOptions(rovers))
+        findMeRovers().then((roversResponse: Rover[]) => {
+            setRoverOptions(makeRoverOptions(roversResponse))
+            setRovers(roversResponse)
+            console.log(`rovers is ${rovers}`)
         })
-    })
+    }, [])
     return (
         <section>
-            <Select id={"mySelectForm"} options={roverOptions} onChange={(event) => {handleSelectionChange(event)}}/>
-            <p>You picked {selection.label}</p>
+            <Select id={"myRoverSelectForm"} options={roverOptions} onChange={handleRoverSelectionChange}/>
+            <p>You picked {roverSelection.label}</p>
+            <Select id={"myCameraSelectForm"} options={cameraOptions} onChange={(event) => {handleCameraSelectionChange(event)}}/>
+            <p>You picked {cameraSelection.label}</p>
         </section>
     )
 }
