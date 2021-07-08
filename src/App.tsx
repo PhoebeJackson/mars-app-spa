@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './Cartoon_space_rocket.png';
+import logo from './images/Cartoon_space_rocket.png';
 import './App.css';
-import BasicComponent from "./BasicComponent";
-import NasaBasicComponent from "./NasaBasicComponent";
-import ButtonCount from "./ButtonCount";
-import FourComponentTree from "./FourComponentTree";
+import BasicComponent from "./components/BasicComponent";
+import NasaBasicComponent from "./components/NasaBasicComponent";
+import ButtonCount from "./components/ButtonCount";
+import FourComponentTree from "./components/FourComponentTree";
 
 function App() {
   return (

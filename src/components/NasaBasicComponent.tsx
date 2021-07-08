@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../images/logo.svg';
+import '../App.css';
 import BasicComponent from "./BasicComponent";
 
 function NasaBasicComponent(){
