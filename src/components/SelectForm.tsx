@@ -3,15 +3,7 @@ import Select from 'react-select';
 import {Camera, Rover} from "../API/APIInterfaces";
 import {getRovers} from "../API/APICallFunctions";
 
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
-
-const rovers = [{value: 0, label: "Loading"}]
-
-class SmallRover {
+class RoverOption {
     value: number;
     label: string
 
@@ -21,11 +13,11 @@ class SmallRover {
     }
 }
 
-function makeSmallRovers(rovers: Rover[]): SmallRover[] {
-    const smallRovers = rovers.map((rover) => {
-        return new SmallRover(rover)
+function makeRoverOptions(rovers: Rover[]): RoverOption[] {
+    const roverOptions = rovers.map((rover) => {
+        return new RoverOption(rover)
     })
-    return smallRovers
+    return roverOptions
 }
 
 async function findMeRovers(): Promise<Rover[]> {
@@ -33,24 +25,8 @@ async function findMeRovers(): Promise<Rover[]> {
     return rovers
 }
 
-
-
-// [{id: 0,
-//     name: "Loading",
-//     landing_date: "Date",
-//     launch_date: "Other date",
-//     status: "loading still",
-//     max_sol: 1000,
-//     max_date: "Never",
-//     total_photos: 250,
-//     cameras: [{
-//         id: 1,
-//         name: "our Camera",
-//         rover_id: 3,
-//         full_name: "longer camera"}]
-
 function SelectForm(){
-    const [smallRovers, setSmallRovers] = useState([{value: NaN, label: "This is loading"}])
+    const [roverOptions, setRoverOptions] = useState([{value: NaN, label: "This is loading"}])
     const [selection, setSelection] = useState({value: NaN, label: "Unknown"});
     const handleSelectionChange = (event: {value: number, label: string} | null) => {
         const myEvent = event || { value: 6, label: 'Broken' }
@@ -58,13 +34,12 @@ function SelectForm(){
     }
     useEffect(() => {
         findMeRovers().then((rovers: Rover[]) => {
-            setSmallRovers(makeSmallRovers(rovers))
+            setRoverOptions(makeRoverOptions(rovers))
         })
-        //smallRovers = array of small rovers
     })
     return (
         <section>
-            <Select id={"mySelectForm"} options={smallRovers} onChange={(event) => {handleSelectionChange(event)}}/>
+            <Select id={"mySelectForm"} options={roverOptions} onChange={(event) => {handleSelectionChange(event)}}/>
             <p>You picked {selection.label}</p>
         </section>
     )
