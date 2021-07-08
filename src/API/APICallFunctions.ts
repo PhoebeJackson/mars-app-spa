@@ -1,10 +1,16 @@
 import {Rover, Camera, Photo} from './APIInterfaces'
 import axios from 'axios'
 
-export async function getRovers() {
-    const response = await axios.get('http://finwhale.zoo.lan:8000/rovers')
-    const rovers: Rover[] = response.data.rovers
-    return rovers
+export async function getRovers(): Promise<Rover[]> {
+    try {
+        const response = await axios.get('http://finwhale.zoo.lan:8000/rovers')
+        const rovers: Rover[] = response.data.rovers
+        return rovers
+    }
+    catch (error) {
+
+        return []
+    }
 }
 
 export async function getPhotos(rover: Rover, camera: Camera) {
