@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import {Camera, Rover} from "../API/APIInterfaces";
-import {getRovers} from "../API/APICallFunctions";
+import {getPhotos, getRovers} from "../API/APICallFunctions";
 
 class RoverOption {
     value: number;
@@ -36,6 +36,11 @@ async function findMeRovers(): Promise<Rover[]> {
 }
 
 function SelectForm(){
+    const [imageURLs, setImageURLS] = useState<string[]>([]);
+    const listImages = imageURLs.map((url) =>
+        <img key={url} src={url}/>
+
+    );
     const [roverOptions, setRoverOptions] = useState<RoverOption[]>([{value: NaN, label: "Loading"}])
     const [roverSelection, setRoverSelection] = useState<RoverOption>({value: NaN, label: "UnknownRover"});
     const [cameraOptions, setCameraOptions] = useState<CameraOption[]>([{value: "", label: "Pick a Rover to see cameras"}])
@@ -57,12 +62,21 @@ function SelectForm(){
     const handleCameraSelectionChange = (event: {value: string, label: string} | null) => {
         const myEvent = event || { value: "", label: 'BrokenCamera' }
         setCameraSelection({value: myEvent.value, label: myEvent.label})
+        // setString(<></>)
+        const urls: string[] = []
+        getPhotos(roverSelection.label, myEvent.value).then((photosResponse) => {
+            photosResponse.forEach((photo) => {
+                urls.push(photo.img_src)
+            })
+            console.log(urls)
+            setImageURLS(urls.slice(0, 5))
+        })
+
     }
     useEffect(() => {
         findMeRovers().then((roversResponse: Rover[]) => {
             setRoverOptions(makeRoverOptions(roversResponse))
             setRovers(roversResponse)
-            console.log(`rovers is ${rovers}`)
         })
     }, [])
     return (
@@ -71,6 +85,7 @@ function SelectForm(){
             <p>You picked {roverSelection.label}</p>
             <Select id={"myCameraSelectForm"} options={cameraOptions} onChange={(event) => {handleCameraSelectionChange(event)}}/>
             <p>You picked {cameraSelection.label}</p>
+            <div>{listImages}</div>
         </section>
     )
 }

@@ -31,9 +31,7 @@ export async function getRovers(): Promise<Rover[]> {
     }
 }
 
-export async function getPhotos(rover: Rover, camera: Camera): Promise<Photo[]> {
-    const roverName: string = rover.name
-    const cameraName: string = camera.name
+export async function getPhotos(roverName: string, cameraName: string): Promise<Photo[]> {
     try {
         const response = await axios.get(`http://finwhale.zoo.lan:8000/rovers/${roverName}/${cameraName}`)
         if (response.status === 200){
