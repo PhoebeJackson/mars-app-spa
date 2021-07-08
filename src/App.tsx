@@ -5,11 +5,13 @@ import BasicComponent from "./components/BasicComponent";
 import NasaBasicComponent from "./components/NasaBasicComponent";
 import ButtonCount from "./components/ButtonCount";
 import FourComponentTree from "./components/FourComponentTree";
+import SelectForm from "./components/SelectForm";
 
 function App() {
   return (
     <section className="App">
       <header className="App-header">
+        <SelectForm></SelectForm>
         <ButtonCount></ButtonCount>
         <FourComponentTree></FourComponentTree>
         <img src={logo} className="App-logo" alt="logo" />
