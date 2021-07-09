@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import '../App.css';
 import {CameraOption, ImageFormContext} from "../contexts/ImageFormContext";
 import Select from "react-select";
 

@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import '../App.css';
 import {ImageFormContext} from "../contexts/ImageFormContext";
 
 function RoverImageDisplay() {
