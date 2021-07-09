@@ -5,12 +5,14 @@ import NasaBasicComponent from "./components/NasaBasicComponent";
 import ButtonCount from "./components/ButtonCount";
 import FourComponentTree from "./components/FourComponentTree";
 import SelectForm from "./components/SelectForm";
+import ImageFormsHost from "./components/ImageFormsHost";
 
 function App() {
   return (
     <section className="App">
       <header className="App-header">
-        <SelectForm></SelectForm>
+        {/*<SelectForm></SelectForm>*/}
+        <ImageFormsHost></ImageFormsHost>
         <ButtonCount></ButtonCount>
         <FourComponentTree></FourComponentTree>
         <img src={logo} className="App-logo" alt="logo" />

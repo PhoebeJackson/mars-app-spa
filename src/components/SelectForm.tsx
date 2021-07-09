@@ -36,8 +36,8 @@ async function findMeRovers(): Promise<Rover[]> {
 }
 
 function SelectForm(){
-    const [imageURLs, setImageURLS] = useState<string[]>([]);
-    const listImages = imageURLs.map((url) =>
+    const [imageURLS, setImageURLS] = useState<string[]>([]);
+    const listImages = imageURLS.map((url) =>
         <img key={url} src={url}/>
 
     );
