@@ -1,0 +1,17 @@
+.Two-body {
+    background-image: url("https://apod.nasa.gov/apod/image/2107/LRVBPIX3M82Crop1024.jpg");
+    background-color: #0b3d91;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #aeb0b5;
+}
+
+p {
+    text-align: center;
+    color: #aeb0b5;
+    width: 50%;
+}

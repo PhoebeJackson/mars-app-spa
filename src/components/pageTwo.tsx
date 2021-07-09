@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {getAsteroids} from "../API/APICallFunctions";
 import {Asteroid, Rover} from "../API/APIInterfaces";
 import {DateTime} from "luxon";
+import "../PageTwoCSS.css"
 
 function averageDiameter(asteroid: Asteroid){
     return (asteroid.estimated_diameter.meters.estimated_diameter_max + asteroid.estimated_diameter.meters.estimated_diameter_min)/2
@@ -26,10 +27,10 @@ function PageTwo() {
     }, [])
 
     return (
-        <section className="App">
-            <header className="App-header">
+        <section>
+            <body className="Two-body">
                 <div>{listAsteroids}</div>
-            </header>
+            </body>
         </section>
     );
 }
