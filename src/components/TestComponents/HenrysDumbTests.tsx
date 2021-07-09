@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {getRovers} from "../API/APICallFunctions";
-import {Rover} from "../API/APIInterfaces";
+import {getRovers} from "../../API/APICallFunctions";
+import {Rover} from "../../API/APIInterfaces";
 
 function HenrysDumbTests() {
     const [result, setResult] = useState("Default");

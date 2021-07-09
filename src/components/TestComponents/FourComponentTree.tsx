@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import '../App.css';
-import {CountContext} from "../contexts/CountContext";
+import {CountContext} from "../../contexts/CountContext";
 
 function Component4() {
     const context = useContext(CountContext)

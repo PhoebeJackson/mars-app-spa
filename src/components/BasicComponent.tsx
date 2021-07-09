@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 
 function BasicComponent(props: {titleString: string, paragraphOneString: string, paragraphTwoString:string, imageURL: string}) {
     return (

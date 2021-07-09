@@ -1,0 +1,56 @@
+.nav {
+    height: 50px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: relative;
+}
+
+.nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+    margin: 0px;
+}
+
+.nav > .nav-buttons {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+
+.nav > .nav-buttons > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.nav > .nav-buttons > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width:600px) {
+    .nav > .nav-buttons {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #333;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+    }
+    .nav > .nav-buttons > a {
+        display: block;
+        width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-buttons {
+        height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-buttons {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+}
