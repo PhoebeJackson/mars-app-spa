@@ -10,25 +10,14 @@ import ImageFormsHost from "./components/ImageFormsHost";
 function App() {
   return (
     <section className="App">
-      <header className="App-header">
+      <section className="App-header">
         {/*<SelectForm></SelectForm>*/}
         <ImageFormsHost></ImageFormsHost>
         <ButtonCount></ButtonCount>
         <FourComponentTree></FourComponentTree>
         <img src={logo} className="App-logo" alt="logo" />
         <NasaBasicComponent></NasaBasicComponent>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>
-
-        </p>
-      </header>
+      </section>
     </section>
   );
 }
