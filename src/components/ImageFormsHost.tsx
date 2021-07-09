@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import '../App.css';
+import React, {CSSProperties, useEffect, useState} from 'react';
+import '../CSS/ImageFormsHost.css';
 import {
     ImageFormContext,
     defaultImageFormContext,
@@ -12,6 +12,15 @@ import {Rover} from "../API/APIInterfaces";
 import CameraSelectionForm from "./CameraSelectionForm";
 import RoverImageDisplay from "./RoverImageDisplay";
 import {getRovers} from "../API/APICallFunctions";
+import Select, { StylesConfig } from 'react-select'
+export const colourStyles: StylesConfig<any, any> = {
+    option: (provided, state) => {
+        return {
+            ...provided,
+            color: "black"
+        };
+    }
+};
 
 function makeRoverOptions(rovers: Rover[]): RoverOption[] {
     const roverOptions = rovers.map((rover) => {
@@ -56,11 +65,14 @@ function ImageFormsHost() {
         })
     }, [])
     return (
-        <ImageFormContext.Provider value={initialContext}>
-            <RoverSelectForm></RoverSelectForm>
-            <CameraSelectionForm></CameraSelectionForm>
-            <RoverImageDisplay></RoverImageDisplay>
-        </ImageFormContext.Provider>
+        <section className="photo-forms">
+            <ImageFormContext.Provider value={initialContext}>
+                <RoverSelectForm></RoverSelectForm>
+                <CameraSelectionForm></CameraSelectionForm>
+                <RoverImageDisplay></RoverImageDisplay>
+            </ImageFormContext.Provider>
+        </section>
+
     )
 }
 

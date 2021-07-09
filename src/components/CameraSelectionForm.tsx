@@ -3,6 +3,7 @@ import '../App.css';
 import Select from "react-select";
 import {ImageFormContext} from "../contexts/ImageFormContext";
 import {getPhotos} from "../API/APICallFunctions";
+import {colourStyles} from "./ImageFormsHost";
 
 function CameraSelectionForm() {
     const context = useContext(ImageFormContext)
@@ -23,7 +24,7 @@ function CameraSelectionForm() {
     }
 
     return (
-        <Select id={"myCameraSelectForm"} options={context.cameraOptions} onChange={(event) => {handleCameraSelectionChange(event)}}/>
+        <Select id={"myCameraSelectForm"} options={context.cameraOptions} onChange={(event) => {handleCameraSelectionChange(event)}} styles={colourStyles}/>
     )
 }
 

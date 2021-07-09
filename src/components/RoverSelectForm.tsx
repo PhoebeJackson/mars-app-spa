@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {CameraOption, ImageFormContext} from "../contexts/ImageFormContext";
 import Select from "react-select";
+import {colourStyles} from "./ImageFormsHost";
 
 function RoverSelectForm() {
     const context = useContext(ImageFormContext)
@@ -20,7 +21,7 @@ function RoverSelectForm() {
     }
 
     return (
-        <Select id={"myRoverSelectForm"} options={context.roverOptions} onChange={handleRoverSelectionChange}/>
+        <Select id={"myRoverSelectForm"} options={context.roverOptions} onChange={handleRoverSelectionChange} styles={colourStyles}/>
     )
 }
 
