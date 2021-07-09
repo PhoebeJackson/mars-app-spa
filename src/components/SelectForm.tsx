@@ -36,8 +36,8 @@ async function findMeRovers(): Promise<Rover[]> {
 }
 
 function SelectForm(){
-    const [imageURLs, setImageURLS] = useState<string[]>([]);
-    const listImages = imageURLs.map((url) =>
+    const [imageURLS, setImageURLS] = useState<string[]>([]);
+    const listImages = imageURLS.map((url) =>
         <img key={url} src={url}/>
 
     );
@@ -49,7 +49,7 @@ function SelectForm(){
     const handleRoverSelectionChange = async (event: {value: number, label: string} | null) => {
         const myEvent = event || { value: NaN, label: 'BrokenRover' }
         setRoverSelection({value: myEvent.value, label: myEvent.label})
-        let newCameraOptions: CameraOption[] = []
+        let newCameraOptions: CameraOption[] = [{value: '', label: 'All Cameras'}]
         rovers.forEach((rover) => {
             if (rover.id === myEvent.value) {
                 rover.cameras.forEach((camera) => {
