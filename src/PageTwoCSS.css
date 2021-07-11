@@ -1,4 +1,4 @@
-.Two-body {
+.Page-Two {
     background-image: url("https://apod.nasa.gov/apod/image/2107/LRVBPIX3M82Crop1024.jpg");
     background-color: #0b3d91;
     min-height: 100vh;
@@ -11,6 +11,7 @@
 }
 
 p {
+    height: 200px;
     text-align: center;
     color: #aeb0b5;
     width: 60%;
