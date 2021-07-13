@@ -24,7 +24,7 @@ function CameraSelectionForm() {
     }
 
     return (
-        <Select id={"myCameraSelectForm"} options={context.cameraOptions} onChange={(event) => {handleCameraSelectionChange(event)}} styles={colourStyles}/>
+        <Select id={"myCameraSelectForm"} options={context.cameraOptions} value={context.cameraSelection} onChange={(event) => {handleCameraSelectionChange(event)}} styles={colourStyles}/>
     )
 }
 

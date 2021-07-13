@@ -39,7 +39,7 @@ function ImageFormsHost() {
     const [roverOptions, setRoverOptions] = useState<RoverOption[]>([{value: NaN, label: "Loading"}])
     const [roverSelection, setRoverSelection] = useState<RoverOption>({value: NaN, label: "UnknownRover"});
     const [cameraOptions, setCameraOptions] = useState<CameraOption[]>([{value: "", label: "Pick a Rover to see cameras"}])
-    const [cameraSelection, setCameraSelection] = useState<CameraOption>({value: "", label: "UnknownCamera"});
+    const [cameraSelection, setCameraSelection] = useState<CameraOption>({value: "", label: "Pick a Rover to see cameras"});
     const [rovers, setRovers] = useState<Rover[]>([])
 
 
