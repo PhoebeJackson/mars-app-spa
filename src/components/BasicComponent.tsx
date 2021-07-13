@@ -6,6 +6,7 @@ function BasicComponent(props: {titleString: string, paragraphOneString: string,
             <h1>{props.titleString}</h1>
             <p>{props.paragraphOneString}</p>
             <p>{props.paragraphTwoString}</p>
+            <br/>
             <img src={props.imageURL} alt={"missing"}/>
         </section>
 

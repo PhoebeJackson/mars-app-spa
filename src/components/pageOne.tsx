@@ -13,7 +13,6 @@ function PageOne() {
             <div className="circle">
                 <img src={logo} className="rocket" alt="logo" />
             </div>
-
             <NasaBasicComponent></NasaBasicComponent>
         </section>
     );
