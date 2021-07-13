@@ -1,6 +1,8 @@
 .Page-Two {
-    background-image: url("https://apod.nasa.gov/apod/image/2107/LRVBPIX3M82Crop1024.jpg");
+    /*background-image: url("https://apod.nasa.gov/apod/image/2107/LRVBPIX3M82Crop1024.jpg");*/
+    background-image: url("https://t3.ftcdn.net/jpg/01/87/78/52/360_F_187785272_IYDuTUwv2ksNUPPrE7a8OrcOZFRtqI3z.jpg");
     background-color: #0b3d91;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,4 +17,18 @@ p {
     text-align: center;
     color: #aeb0b5;
     width: 60%;
+}
+
+.asteroid-img {
+    float: left;
+}
+
+.floating-paragraph {
+    position: fixed;
+    float: left;
+    top: 100px;
+    left: 20px;
+    color: #aeb0b5;
+    width: 40%;
+    text-align: center;
 }

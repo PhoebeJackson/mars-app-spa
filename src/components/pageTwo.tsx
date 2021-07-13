@@ -55,13 +55,13 @@ function PageTwo() {
     console.log(asteroidsForImage)
     const listImages = asteroidsForImage.map((asteroid) => {
         return (
-            <img key={asteroid.id} src={asteroidPicture} alt={asteroid.name} width={asteroid.diameter/5} onMouseLeave={() => setCurrentAsteroidText("Hover over another asteroid to learn about it")} onMouseEnter={() => {setCurrentAsteroidText(`This is a potentially hazardous asteroid, called ${asteroid.name}, which has approximate diameter ${asteroid.diameter} metres. It will reach the closest point to us (${asteroid.distance} kilometres) at ${timeFormat(asteroid.date)} and is approaching with velocity ${asteroid.velocity} km/s!`)}}/>
+            <img key={asteroid.id} src={asteroidPicture} className={"asteroid-img"} alt={asteroid.name} width={asteroid.diameter/2} onMouseLeave={() => setCurrentAsteroidText("Hover over another asteroid to learn about it")} onMouseEnter={() => {setCurrentAsteroidText(`This is a potentially hazardous asteroid, called ${asteroid.name}, which has approximate diameter ${asteroid.diameter} metres. It will reach the closest point to us (${asteroid.distance.toLocaleString()} kilometres) at ${timeFormat(asteroid.date)} and is approaching with velocity ${asteroid.velocity} km/s!`)}}/>
             )
     });
     return (
         <section className="Page-Two">
             {/*//TODO - make this a fixed size to avoid moving!*/}
-            <p>{currentAsteroidText}</p>
+            <p className={"floating-paragraph"}>{currentAsteroidText}</p>
             {listImages}
             <img className={"asteroid-image"} src={earthPicture}/>
             <figcaption>Earth (not to scale)</figcaption>
