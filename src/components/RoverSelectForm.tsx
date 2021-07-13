@@ -17,7 +17,9 @@ function RoverSelectForm() {
                 })
             }
         })
-        await context.setCameraOptions(newCameraOptions)
+        context.setCameraOptions(newCameraOptions)
+        context.setCameraSelection({value: "Test", label: "Select a camera"})
+        context.setImageURLS([])
     }
 
     return (
